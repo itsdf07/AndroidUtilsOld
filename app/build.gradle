@@ -1,0 +1,60 @@
+//这里指明这是一个android工程，也可以填com.android.library
+//指明这是一个类库
+apply plugin: 'com.android.application'
+
+android {
+
+    //使用的编译版本SDK
+    compileSdkVersion 25
+    //指定buildtool版本
+    buildToolsVersion '25.0.1'
+    defaultConfig {
+        applicationId "com.itsdf07.androidutils"
+        //最小SDK17
+        minSdkVersion 15
+        //目标版本19
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+//    // 打包签名
+//    signingConfigs {
+//        //指定debug模式下使用的签名文件
+//        debug { storeFile file("debug.keystore") }
+//        release {
+//            //发布正式版本模式下的使用的签名文件
+//            storeFile file('release.keystore')
+//            storePassword 'this is keystore password'
+//            keyAlias ''
+//            keyPassword 'this is key password'
+//        }
+//    }
+
+    //编译时脚本运行环境
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+//防止lint时报错
+    lintOptions {
+        abortOnError false
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}
