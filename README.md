@@ -11,19 +11,21 @@
 * [okhttp3](https://github.com/itsdf07/AndroidHttpUtils.git)
 
 ## 对于module baseutils的使用
-* 项目的'build.gradle'增加工具库的目标地址
+* 项目的<font color=#40E0D0 >build.gradle</font>增加工具库的目标地址
 ```javascript
     repositories {
         jcenter()
-        'maven {
+        <font color=#40E0D0 >
+        maven {
             url 'https://bintray.com/itsdf07/maven/'
-        }'
+        }
+        </font>
     }
 ```
 * 需要依赖该工具库的'Module中'的'build.gradle'中添加'compile'依赖
 ```javascript
     dependencies {
-        compile 'com.itsdf07:baseutils:1.0.1'
+        <font color=#40E0D0 >compile 'com.itsdf07:baseutils:1.0.1'</font>
     }
 ```
 
