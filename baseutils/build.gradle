@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+//    gradlew clean build bintrayUpload -PbintrayUser=itsdf07 -PbintrayKey=1c57219c87ea1a4db9edc945156def8accae236 -PdryRun=false
+//    https://bintray.com/itsdf07/maven
+    userOrg = 'itsdf07'//bintray.com用户名
+    groupId = 'com.itsdf07'//jcenter上的路径
+    artifactId = 'baseutils'//项目名称
+    publishVersion = '1.0.1'//版本号
+    desc = 'this is test version'//描述，不重要
+    website = 'https://github.com/itsdf07'//网站，最好有，不重要
+}
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 5
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
